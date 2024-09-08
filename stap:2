@@ -2,4 +2,34 @@ now open new terminal(without switch django server)-
 
 you are show like this in terminal(PS C:\Users\dell\Desktop\DRF>)-
 
-    >
+    >npx create-react-app frontend
+    >cd frontend
+    >npm start
+
+Open the frontend/src/App.js file and modify it like this-
+
+import React, { useState, useEffect } from 'react';
+
+function App() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/app/hello/')
+      .then(response => response.json())
+      .then(data => setData(data));
+  }, []);
+
+  return (
+    <div>
+      <h1>{data ? data.message : 'Loading...'}</h1>
+    </div>
+  );
+}
+
+export default App;
+
+
+// so then you will see "Hello, World" on localhost:3000
+
+// NOTE: django and react both server are runing stag 
+
