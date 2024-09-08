@@ -1,1 +1,102 @@
+check django installed or not in our system-
+       >django-admin
+
+create venv-
+
+      >python -m venv env
+
+      >env\Scripts\activate
+
+installed django inside venv-
+
+      >install django
+
+create project-
+
+     >django-admin startproject drf_ecommerce_proj
+     >cd drf_ecommerce_proj
+
+create app-
+
+     >python manage.py startapp app
+
+if you want connect django with react so install django_rest_frameword-
+
+    >pip install djangorestframework
+
+if you want open on react port instad of django port 8000-
+
+   >pip install django-cors-headers
+
+
+
+Go to the Setting.py file-
+    INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    
+    'app',            #add app_name, and rest_framework 
+    'rest_framework',
+    'corsheaders',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',  # CORS Middleware
+
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+
+views.py-
+
+  from django.shortcuts import render
+
+# Create your views here.
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def hello_world(request):
+    return Response({"message": "Hello, world!"})
+
+create urls.py inside app(urls.py/app)-
+
+     from django.urls import path
+from .views import hello_world
+
+urlpatterns = [
+    path('hello/',hello_world),
+]
+
+urls.py/drf_ecommerce_proj-
+
+    from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('app/',include('app.urls'))
+]
+
+
+run the command-
+
+   >python manage.py runserver
+
+
+#still it will open on django port not react port(http://127.0.0.1:8000/app/hello/)
 
