@@ -1,0 +1,32 @@
+//Professnal way to Word react and django and drf-
+
+DRF/
+│
+├── env/            # Virtual environment
+├── drf_ecommerce_proj/        # Django project (backend)
+│   ├── manage.py
+│   └── (other Django files)
+├── frontend/       # React project (frontend)
+│   └── (React files)
+└── README.md       # Documentation or project description
+
+
+//if you are working next day so all session and env are closed by that time you will need to activate again env and runserver , follow bottom-
+
+terminal 1 for Django:----------
+C:\Users\dell\Desktop\DRF>
+  
+
+  >env\Scripts\activate
+
+  >cd drf_ecommerce_proj
+  >python manage.py runserver
+
+
+terminal 2 for react:------------
+C:\Users\dell\Desktop\DRF>
+
+  >cd frontend
+  >npm start
+
+  
