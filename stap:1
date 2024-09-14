@@ -73,6 +73,9 @@ from rest_framework.response import Response
 def hello_world(request):
     return Response({"message": "Hello, world!"})
 
+
+
+
 create urls.py inside app(urls.py/app)-
 
      from django.urls import path
