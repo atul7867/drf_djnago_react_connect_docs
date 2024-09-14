@@ -82,7 +82,7 @@ create urls.py inside app(urls.py/app)-
 from .views import hello_world
 
 urlpatterns = [
-    path('hello/',hello_world),
+    path('api/hello/',hello_world),
 ]
 
 urls.py/drf_ecommerce_proj-
@@ -92,7 +92,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('app/',include('app.urls'))
+    path('',include('app.urls'))
 ]
 
 
@@ -101,5 +101,5 @@ run the command-
    >python manage.py runserver
 
 
-#still it will open on django port not react port(http://127.0.0.1:8000/app/hello/)
+#still it will open on django port not react port(http://127.0.0.1:8000/api/hello/)
 
